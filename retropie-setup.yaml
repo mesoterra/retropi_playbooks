@@ -1,0 +1,26 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  vars_prompt:
+    - name: drive_to_mount
+      prompt: "Specify /dev path to SD card. (NOTE: Do NOT include the number!)"
+      private: no
+    - name: mount_location
+      prompt: "Specify where to mount SD card"
+      private: no
+    - name: wifi_name
+      prompt: "Specify name of WIFI network"
+      private: no
+    - name: wifi_password
+      prompt: "Specify password for WIFI"
+    - name: personal_ssh_key
+      prompt: "Specify the path and filename of the public ssh key you will use to connect"
+  roles:
+    - retropie-setup-install-retropie
+    - retropie-mount-drive
+    - retropie-setup-install-gpi-patch-pre-boot
+    - retropie-setup-configure-wifi
+    - retropie-setup-deploy-personal-ssh-key
+    - retropie-setup-enable-ssh
+    - retropie-unmount-drive

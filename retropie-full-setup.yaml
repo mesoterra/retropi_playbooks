@@ -1,0 +1,21 @@
+---
+- name: "Initial Setup Of SD Card"
+  import_playbook: "{{ playbook_dir }}/retropie-setup.yaml"
+
+- name: "Wait For User Input"
+  import_playbook: "{{ playbook_dir }}/wait-for-user-input.yaml"
+
+- name: "Post Boot Setup Steps"
+  import_playbook: "{{ playbook_dir }}/retropie-setup-post-boot.yaml"
+
+- name: "Installing Preferred Packages"
+  import_playbook: "{{ playbook_dir }}/retropie-install-preferred-apps.yaml"
+
+- name: "Updating OS"
+  import_playbook: "{{ playbook_dir }}/retropie-os-update.yaml"
+
+- name: "Uploading ROMS"
+  import_playbook: "{{ playbook_dir }}/retropie-deploy-roms.yaml"
+
+- name: "Final Reboot"
+  import_playbook: "{{ playbook_dir }}/reboot.yaml"

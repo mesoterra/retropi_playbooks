@@ -1,0 +1,9 @@
+---
+- hosts: all
+#  vars_files:
+#    - ~/.ansible/ansible.vault
+#  gather_facts: no
+#  become: no
+  roles:
+    - retropie-deploy-gpi-patch-post-update
+    - reboot

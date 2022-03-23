@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  vars_prompt:
+    - name: route_ip
+      prompt: "Specify default route IP"
+      private: no
+  roles:
+    - retropie-setup-default-route
+    - retropie-update-ssh-key
+    - retropie-setup-install-safe-scripts
+    - reboot

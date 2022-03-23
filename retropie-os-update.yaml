@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - update-os
+    - retropie-deploy-gpi-patch-post-update
+    - retropie-fix-alsa
+    - reboot
